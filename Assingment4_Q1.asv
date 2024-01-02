@@ -1,0 +1,28 @@
+
+%21010264 Star Chen
+
+syms x
+
+n = 1;
+
+x = 0 : 0.1 : pi;
+
+fx = x - 1 - sin(x);
+
+i = 0;
+
+while true
+
+    i = i + 1;
+
+    T = taylor(fx, 'ExpansionPoint', pi/2, 'Order', i);
+    
+    hold on
+
+    plot(x, fx, x, T) 
+    
+    hold off
+
+    if fx - T  
+
+end

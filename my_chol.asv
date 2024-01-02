@@ -1,0 +1,28 @@
+%Star Chen 21010264
+clear
+clc
+
+A =  [6 15 55 ; 15 55 225 ; 55 225 979];
+
+my_chol(A)'
+
+function u = my_chol(A)
+i = length( A );
+j = zeros( i, i );
+[a, b] = size(A);
+
+if a ~= b 
+    error("Matrix is not square")
+elseif det(A) ~= true
+    error("Matrix is not symmetric")
+end
+
+
+for x=1:i
+   j(x, x) = sqrt(A(x, x) - j(x, :)*j(x, :)');
+   for y=(x + 1):i
+      j(y, x) = (A(y, x) - j(x,:)*j(y ,:)')/j(x, x);
+   end
+u = j;
+end
+end
